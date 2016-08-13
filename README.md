@@ -29,13 +29,13 @@ composer update
 Either run
 
 ```
-composer require --prefer-dist ben-tech/yii2-dual-list-box "dev-master"
+composer require --prefer-dist ben-tech/yii2-dual-list-box "*"
 ```
 
 or add
 
 ```
-"ben-tech/yii2-dual-list-box": "dev-master"
+"ben-tech/yii2-dual-list-box": "*"
 ```
 
 to the require section of your `composer.json` file.
