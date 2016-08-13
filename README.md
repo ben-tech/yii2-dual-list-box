@@ -53,7 +53,7 @@ Once the extension is installed, simply use it in your code:
 
 echo bmte\duallistbox\Widget::widget([
     'model' => $model,
-    'attribute' => 'list_regions',
+    'attribute' => 'data',
     'title' => 'test',
     'data' => $data,
     'data_id'=> 'id',
