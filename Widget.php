@@ -118,7 +118,19 @@ class Widget extends InputWidget
         ';
         $view->registerCss($css);
         $view->registerJs($js);
-        return Html::activeListBox($this->model,$this->attribute,$this->data,['multiple'=>'multiple','size'=>$this->size]);
-    }
+        $attr = $this->attribute;
+        $users =$this->model->$attr;
+        $options = [];
+        if(!empty($users)&&$users!='')
+        {
+            $users=explode(',',$users);
+            foreach ($users as $v)
+            {
+                $options[$v]=['selected'=>'selected'];
+            }
+        }
 
+        return Html::activeListBox($this->model,$this->attribute,$this->data,[
+            'options'=>$options,'multiple'=>'multiple','size'=>$this->size]);
+    }
 }
