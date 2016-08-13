@@ -1,0 +1,21 @@
+{
+    "name": "ben-tech/yii2-dual-list-box",
+    "description": "Dual list box Widget for Yii 2",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "yii 2", "dual-list-box", "duallistbox", "dual listview", "widget"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "ben yang",
+            "email": "kolvin@qq.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "bmte\\duallistbox\\": ""
+        }
+    }
+}
