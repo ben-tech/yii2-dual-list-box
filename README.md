@@ -11,6 +11,11 @@ Installation
 ------------
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+if composer not work please upload ,you can run : 
+
+```php
+composer global require "fxp/composer-asset-plugin:~1.1.1"
+```
 
 Either run
 
