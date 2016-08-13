@@ -12,6 +12,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": ">=5.2",
         "yiisoft/yii2-bootstrap": "@dev"
     },
     "autoload": {
