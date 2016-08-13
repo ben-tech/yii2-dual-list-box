@@ -61,6 +61,8 @@ class Widget extends InputWidget
      * @var int
      */
     public $selectorMinimalHeight=100;
+
+    private $messageCategory = 'dual-list-box';
     /*******************************************属性设置 end*****************************************************/
 
     /**
@@ -68,6 +70,21 @@ class Widget extends InputWidget
      * @var
      */
     public $filterOnValues=true;
+
+    public function init()
+    {
+        Yii::$app->language='zh-CN';
+        parent::init();
+        if (!array_key_exists($this->messageCategory, Yii::$app->i18n->translations)) {
+            Yii::$app->i18n->translations[$this->messageCategory] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath'=>'@vendor/ben-tech/yii2-dual-list-box/messages',
+                'fileMap'=>[
+                    $this->messageCategory=>'widget.php'
+                ],
+            ];
+        }
+    }
 
     public function run()
     {
@@ -77,23 +94,23 @@ class Widget extends InputWidget
         $view=$this->getView();
         Asset::register($view);
         $js="$('#{$this->options['id']}').bootstrapDualListbox({
-                  nonSelectedListLabel: '".Yii::t('common','dual list non selected')."',
+                  nonSelectedListLabel: '".Yii::t($this->messageCategory,'dual list non selected')."',
                   selectedListLabel: 'Selected',
                   preserveSelectionOnMove: 'moved',
                   moveOnSelect: '{$this->moveOnSelect}',
                   selectorMinimalHeight:'{$this->selectorMinimalHeight}',
                   showFilterInputs:'{$this->showFilterInputs}',
                   filterOnValues:'{$this->filterOnValues}',
-                  infoText:'".Yii::t('common','dual list info text').":{0}',
-                  filterTextClear:'".Yii::t('common','dual list filter text clear')."',
-                  infoTextFiltered:'<span class=\"label label-warning\">".Yii::t('common','dual list filtered')."</span> {0} ".Yii::t('common','dual list from')." {1}',
-                  filterPlaceHolder:'".Yii::t('common','dual list filter placeholder')."',
-                  moveSelectedLabel:'".Yii::t('common','dual list move selected label')."',
-                  moveAllLabel:'".Yii::t('common','dual list move all label')."',
-                  removeSelectedLabel:'".Yii::t('common','dual list remove selected label')."',
-                  infoTextEmpty:'".Yii::t('common','dual list info text empty')."',
-                  selectedListLabel:'".Yii::t('common','dual list selected list label')."'
-                  
+                  infoText:'".Yii::t($this->messageCategory,'dual list info text').":{0}',
+                  filterTextClear:'".Yii::t($this->messageCategory,'dual list filter text clear')."',
+                  infoTextFiltered:'<span class=\"label label-warning\">".Yii::t($this->messageCategory,'dual list filtered')."</span> {0} ".Yii::t($this->messageCategory,'dual list from')." {1}',
+                  filterPlaceHolder:'".Yii::t($this->messageCategory,'dual list filter placeholder')."',
+                  moveSelectedLabel:'".Yii::t($this->messageCategory,'dual list move selected label')."',
+                  moveAllLabel:'".Yii::t($this->messageCategory,'dual list move all label')."',
+                  removeSelectedLabel:'".Yii::t($this->messageCategory,'dual list remove selected label')."',
+                  infoTextEmpty:'".Yii::t($this->messageCategory,'dual list info text empty')."',
+                  selectedListLabel:'".Yii::t($this->messageCategory,'dual list selected list label')."',
+                  removeAllLabel:'".Yii::t($this->messageCategory,'dual list remove all label')."',
                 });";
         $css='.buttons{width:100%;}
        .removeall,.moveall{width:40%;}
