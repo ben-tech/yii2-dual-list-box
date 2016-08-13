@@ -41,7 +41,7 @@ echo bmte\duallistbox\Widget::widget([
     'model' => $model,
     'attribute' => 'list_regions',
     'title' => 'test',
-    'data' => $region,
+    'data' => $data,
     'data_id'=> 'id',
     'data_value'=> 'text'
   ]);
@@ -58,10 +58,10 @@ data_value - name attribute for value
 
 first to new a model in your controller
 ```php
-        $model = new Model;
+        $model = new YourModel();
  ```       
         
 get your data for left listbox
 ```php    
-        $region = Region::find();
+        $data = ModelQeury::find();
  ``` 
